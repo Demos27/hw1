@@ -1,0 +1,23 @@
+{
+    "name": "d.panfilov/library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "classmap": ["src", "tests/Units", ""]
+    },
+    "autoload-dev": {
+        "psr-4": { "PHPUnit\\Framework\\": "vendor/phpunit/phpunit/tests/unit/Framework" }
+    },
+    "authors": [
+        {
+            "name": "Dmitry Panfilov",
+            "email": "d.panfilov@crpt.ru"
+        }
+    ],
+    "require": {
+        "php": "^7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}
