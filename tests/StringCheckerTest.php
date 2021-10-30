@@ -28,13 +28,22 @@ class StringCheckerTest extends TestCase
         ];
 
     /**
-     * @expectedException InvalidArgumentException
-     */    public function testStringChecker()
+     * Positive test
+     */
+    public function testPositive()
     {
         foreach (self::POSITIVE_STRING_CASES as $string) {
             $checker = new StringChecker($string, self::DEBUG_MODE);
             $this->assertEquals(true, $checker->stringCheck());
         }
+    }
+
+    /**
+     * Negative test
+     *  @expectedException InvalidArgumentException
+     */
+    public function testNegative()
+    {
         foreach (self::NEGATIVE_STRING_CASES as $string) {
             $checker = new StringChecker($string, self::DEBUG_MODE);
             $this->assertEquals(false, $checker->stringCheck());

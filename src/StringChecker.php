@@ -6,7 +6,7 @@ class StringChecker
 {
     private const BRACKET_SYMBOLS = ['(', ')'];
 
-    private const SERVICE_SYMBOLS = ["\n", "\t", "\r"];
+    private const SERVICE_SYMBOLS = ["\\n", "\\t", "\\r", ' '];
 
     private $allowedSymbols = [];
 
@@ -56,13 +56,10 @@ class StringChecker
      */
     private function notAllowedSymbolsCheck(): bool
     {
-        $array = str_split($this->string);
-        $arrayFlip = array_flip($array);
-        foreach ($this->allowedSymbols as $key) {
-            unset($arrayFlip[$key]);
-        }
-        if ($arrayFlip !== []) {
-            throw new \InvalidArgumentException('String contain not allowed symbols');
+        $this->string = str_replace(self::SERVICE_SYMBOLS,'', $this->string);
+        $tmpString = str_replace(self::BRACKET_SYMBOLS,'', $this->string);
+        if ($tmpString !== '') {
+            throw new \InvalidArgumentException("\nString: $this->string \ncontain not allowed symbols: $tmpString");
         }
         return true;
     }
@@ -72,7 +69,7 @@ class StringChecker
      */
     private function bracketCountCheck(): bool
     {
-        return substr_count($this->string, '(') === substr_count($this->string, '(');
+        return substr_count($this->string, '(') === substr_count($this->string, ')');
     }
 
     /**
