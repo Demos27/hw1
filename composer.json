@@ -3,10 +3,7 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
-        "classmap": ["src", "tests/Units", ""]
-    },
-    "autoload-dev": {
-        "psr-4": { "PHPUnit\\Framework\\": "vendor/phpunit/phpunit/tests/unit/Framework" }
+        "psr-4": { "Checker\\" : "src"}
     },
     "authors": [
         {
