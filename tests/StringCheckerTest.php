@@ -40,7 +40,7 @@ class StringCheckerTest extends TestCase
 
     /**
      * Negative test
-     *  @expectedException InvalidArgumentException
+     * @expectedException InvalidArgumentException
      */
     public function testNegative()
     {

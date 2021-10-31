@@ -56,8 +56,8 @@ class StringChecker
      */
     private function notAllowedSymbolsCheck(): bool
     {
-        $this->string = str_replace(self::SERVICE_SYMBOLS,'', $this->string);
-        $tmpString = str_replace(self::BRACKET_SYMBOLS,'', $this->string);
+        $this->string = str_replace(self::SERVICE_SYMBOLS, '', $this->string);
+        $tmpString = str_replace(self::BRACKET_SYMBOLS, '', $this->string);
         if ($tmpString !== '') {
             throw new \InvalidArgumentException("\nString: $this->string \ncontain not allowed symbols: $tmpString");
         }
@@ -81,7 +81,7 @@ class StringChecker
         $arraySize = count($array);
         for ($i = 0; $arraySize > 0; $i++) {
             if ($this->debugMode === 1) {
-                var_dump('ITERATION:' . $i .' Array size:' . $arraySize);
+                var_dump('ITERATION:' . $i . ' Array size:' . $arraySize);
                 var_dump($array);
             }
             $current = array_key_first($array);
@@ -91,7 +91,7 @@ class StringChecker
             if (in_array($array[$current], self::SERVICE_SYMBOLS)) {
                 unset($array[$current]);
                 if ($this->debugMode === 1) {
-                    var_dump("service: $array[$current]" );
+                    var_dump("service: $array[$current]");
                 }
                 continue;
             }
@@ -108,7 +108,7 @@ class StringChecker
             }
         }
         if ($this->debugMode === 1) {
-            var_dump(['Result Array' => $array] );
+            var_dump(['Result Array' => $array]);
         }
         return $array === [];
     }
